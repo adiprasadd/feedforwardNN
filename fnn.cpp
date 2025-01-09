@@ -27,6 +27,7 @@ private:
     double random_weight() {
         return ((double)rand() / RAND_MAX) * 2 - 1;
     }
+
 public:
     NeuralNetwork(int inputs, int hidden, int outputs) {
         srand(time(0));
@@ -108,3 +109,30 @@ public:
         }
     }
 };
+
+int main() {
+    NeuralNetwork nn(2, 4, 1);
+
+    vector<vector<double>> training_inputs = {
+        {0, 0}, {0, 1}, {1, 0}, {1, 1}
+    };
+    vector<vector<double>> training_outputs = {
+        {0}, {1}, {1}, {0}
+    };
+
+    cout << "Training neural network...\n";
+    for(int i = 0; i < 10000; i++) {
+        for(int j = 0; j < training_inputs.size(); j++) {
+            nn.train(training_inputs[j], training_outputs[j]);
+        }
+    }
+
+    cout << "\nTesting neural network:\n";
+    for(int i = 0; i < training_inputs.size(); i++) {
+        vector<double> output = nn.feedforward(training_inputs[i]);
+        cout << training_inputs[i][0] << " XOR " << training_inputs[i][1] 
+             << " = " << output[0] << endl;
+    }
+
+    return 0;
+}
