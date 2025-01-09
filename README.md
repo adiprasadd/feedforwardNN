@@ -1,6 +1,6 @@
 # Feedforward Neural Network for XOR Problem  
 
-This repository contains an implementation of a feedforward neural network with a single hidden layer. The network is designed to solve the XOR problem, a classic binary classification task. The network is trained using backpropagation and employs the sigmoid activation function.  
+This repository contains an implementation of a feedforward neural network implemented in C++ only using standard libraries, with a single hidden layer. The network is designed to solve the XOR problem, a classic binary classification task. The network is trained using backpropagation and employs the sigmoid activation function.  
 
 ## Features  
 - **Feedforward Neural Network:** Input, hidden, and output layers.  
